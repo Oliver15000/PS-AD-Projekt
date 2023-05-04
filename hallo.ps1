@@ -1,1 +1,1 @@
-write "du keck"
+write "du ke"
