@@ -1,0 +1,1 @@
+Write-Host "Bei folgenden Benutzern läuft das Passwort nie ab:"

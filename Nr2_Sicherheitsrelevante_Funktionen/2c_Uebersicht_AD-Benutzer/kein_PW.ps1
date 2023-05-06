@@ -1,0 +1,1 @@
+Write-Host "Für folgende User ist kein Passwort gesetzt"
