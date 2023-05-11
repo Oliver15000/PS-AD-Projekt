@@ -22,7 +22,7 @@ Welche Position man braucht in dem Array oder Hashtable. beide durchnummeriert
 1. ouPfad
 2. ouLernende
 3. ouKlasse
-
+test
 
 #>
 
