@@ -29,7 +29,7 @@ Welche Position man braucht in dem Array oder Hashtable. beide durchnummeriert
 [string]$Was = Read-Host  -prompt "Pfade oder Info"
 [Int16]$genau = Read-Host -Prompt "Pfade:0-4 oder Info:1-3"
 
-$Pfade = @("","","","")
+$Pfade = @(".\Infos\schueler.csv","","","")
 
 $Info = @{
     1 = ""
