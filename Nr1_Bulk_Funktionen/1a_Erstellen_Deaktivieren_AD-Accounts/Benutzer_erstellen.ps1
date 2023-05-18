@@ -13,7 +13,11 @@ function Import_Benutzer {
        (Get-Content $path2 | Select-Object -Skip 1) | Set-Content $path2
     $import = Import-Csv -Path ($path2) -Delimiter ";" 
   Remove-Item -Path ($path2) 
-$import | erstellen 
+  $import.Name.Vorname.Benutzername.Klasse.Klasse2 | pwsh:\Umlaue_ersetzen.ps1
+  $import.Name.Vorname.Benutzername.Klasse.Klasse2.replace('ä','ae').replace('ü','ue').replace('ö','oe').replace('é','e')
+  $import
+
+
 
 }
 
@@ -24,14 +28,21 @@ function erstellen {
             
         }
         else {
-        
-        
+            $_.replace('ä','ae').replace('ü','ue').replace('ö','oe').replace('é','e')
+            write $_
        write $_.Name
         [String]$display = ($_.Vorname)
         $display += " "
         $display += ($_.Name)
-        New-ADUser -name $_.Benutzername -path AD:\"OU=Schueler, DC=powershell,DC=dreck" 
-        Set-ADUser  -UserPrincipalName ($_.Benutzername) -DisplayName ($display) -Enabled $true -GivenName ($_.Vorname) -Surname ($_.Name) -PasswordNotRequired $true
+        write-host $display `
+        New-ADUser -name ($_.Name) `
+        -path "OU=Schueler, DC=powershell,DC=dreck" `
+        -DisplayName ($display) `
+        -Enabled $true `
+        -GivenName ($_.Vorname) `
+        -Surname ($_.Name) `
+        -SamAccountName ($_.Benutzername) `
+        -PasswordNotRequired $true
     }}
     end{
         Get-ADUser -Filter *
